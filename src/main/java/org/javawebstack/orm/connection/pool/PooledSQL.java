@@ -48,6 +48,9 @@ public class PooledSQL implements SQL, AutoCloseable {
     }
 
     public void close() {
+        if (closed)
+            return;
+
         pool.release(connection);
         closed = true;
     }
