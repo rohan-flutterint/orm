@@ -47,9 +47,8 @@ public class SQLPool {
                 sql.close();
                 return;
             }
-            if(!connections.contains(sql))
-                throw new IllegalArgumentException("Not a connection of this pool");
-            connectionQueue.add(sql);
+            if(!connectionQueue.contains(sql))
+                connectionQueue.add(sql);
             scale();
         }
     }
