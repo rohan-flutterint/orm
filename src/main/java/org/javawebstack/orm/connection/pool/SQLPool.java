@@ -42,6 +42,9 @@ public class SQLPool {
     }
 
     public void release(SQL sql) {
+        if(sql == null) {
+            throw new IllegalArgumentException("sql must not be null");
+        }
         if(!closing) {
             if(sql instanceof PooledSQL) {
                 sql.close();
